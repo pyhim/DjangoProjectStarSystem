@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+  <div class="col-4">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="col-4">
+    {% now "jS F Y H:i" as date_now %}
+    <h3>{{date_now}}</h3>
+  </div>
+  <div class="col-4">
+    <a class="btn btn-primary" href="{% url 'star-system-create' %}">Create</a>
+  </div>
+</div>
+{% regroup starsystem_list by galaxy as starsystems %}
+{% for galaxy in starsystems %}
+<h1>{{galaxy.grouper}}</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Position_X</th>
+        <th scope="col">Position_Y</th>
+        <th scope="col">Galaxy</th>
+    </tr>
+  </thead>
+    <tbody>
+      {% for starsystem in galaxy.list %}
+      <tr>
+          <th scope="row"><a href="/star_system/{{star_system.id}}">{{starsystem.name}}</a></th>
+          <td>{{starsystem.position_x}}</td>
+          <td>{{starsystem.position_y}}</td>
+          <td>{{starsystem.galaxy}}</td>
+      </tr>
+      {% endfor %}
+    <tbody>
+</table>
+{% endfor %}
+{% endblock content %}

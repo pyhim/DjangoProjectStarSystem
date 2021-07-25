@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>StarSystem</h1>
+    <h3>{{starsystem.name}}</h3>
+    <p class="h5">{{starsystem.position_x}}</p>
+    <p class="h5">{{starsystem.position_y}}</p>
+    <p class="h5">{{starsystem.galaxy}}</p>
+    <div class="row">
+        <div class="col-12">
+        {% lorem 3 p %}
+        </div>
+    </div>
+{% endblock content%}

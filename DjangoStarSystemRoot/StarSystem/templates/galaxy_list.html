@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+  <div class="col-4">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="col-4">
+    {% now "jS F Y H:i" as date_now %}
+    <h3>{{date_now}}</h3>
+  </div>
+  <div class="col-4">
+    <a class="btn btn-primary" href="{% url 'galaxy-create' %}">Create</a>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Size_X</th>
+        <th scope="col">Size_X</th>
+    </tr>
+  </thead>
+    <tbody>
+      {% for galaxy in galaxy_list %}
+      <tr>
+          <th scope="row"><a href="/galaxy/{{galaxy.id}}">{{galaxy.name}}</a></th>
+          <td>{{galaxy.size_x}}</td>
+          <td>{{galaxy.size_y}}</td>
+      </tr>
+      {% endfor %}
+    <tbody>
+</table>
+{% endblock content %}

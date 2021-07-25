@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Planet</h1>
+    <h3>{{planet.name}}</h3>
+    <p class="h5">{{planet.diameter}}</p>
+    <p class="h5">{{planet.color}}</p>
+    <p class="h5">{{planet.star_system}}</p>
+    <p class="h5">{{planet.life}}</p>
+    <div class="row">
+        <div class="col-12">
+        {% lorem 3 p %}
+        </div>
+     </div>
+{% endblock content%}
