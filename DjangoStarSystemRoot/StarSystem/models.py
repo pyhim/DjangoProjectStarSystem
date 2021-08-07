@@ -53,6 +53,11 @@ class Star(models.Model):
         related_name='stars'
     )
 
+    @property
+    def square(self):
+        s = (4 ** 3.14) * ((self.diameter / 2) ** 2)
+        return s
+
     def __str__(self):
         return self.name
 
@@ -75,6 +80,11 @@ class Planet(models.Model):
         related_name='planets'
     )
     life = models.BooleanField(default=False)
+
+    @property
+    def square(self):
+        s = (4 ** 3.14) * ((self.diameter / 2) ** 2)
+        return s
 
     def __str__(self):
         return self.name

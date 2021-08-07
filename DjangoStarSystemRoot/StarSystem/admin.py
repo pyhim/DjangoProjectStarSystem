@@ -40,6 +40,7 @@ class StarAdmin(admin.ModelAdmin):
         'diameter',
         'color',
         'star_system',
+        'square',
     ]
 
 
@@ -51,4 +52,5 @@ class PlanetAdmin(admin.ModelAdmin):
         'color',
         'star_system',
         'life',
+        'square',
     ]
