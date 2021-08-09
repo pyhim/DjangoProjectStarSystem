@@ -56,7 +56,7 @@ class Star(models.Model):
 
     @property
     def square(self):
-        s = (4 ** pi) * ((self.diameter / 2) ** 2)
+        s = (pi * self.diameter) ** 2
         return s
 
     def __str__(self):
@@ -84,7 +84,7 @@ class Planet(models.Model):
 
     @property
     def square(self):
-        s = (4 ** pi) * ((self.diameter / 2) ** 2)
+        s = (pi * self.diameter) ** 2
         return s
 
     def __str__(self):
