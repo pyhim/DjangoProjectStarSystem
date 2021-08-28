@@ -1,4 +1,4 @@
-"""DjangoStarSystemRoot URL Configuration
+"""DjangoStarSystem URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -15,9 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+import StarSystem.views as v
+
+router = routers.DefaultRouter()
+router.register(r'galaxies', v.GalaxyViewSet)
+router.register(r'starsystems', v.StarSystemViewSet)
+router.register(r'stars', v.StarViewSet)
+router.register(r'planets', v.PlanetViewSet)
 
 urlpatterns = [
+    path('', include(router.urls)),
     path('', include('StarSystem.urls')),
     path('admin/', include('smuggler.urls')),
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

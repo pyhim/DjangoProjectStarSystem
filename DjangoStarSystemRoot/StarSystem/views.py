@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
+from StarSystem.serializers import *
+from rest_framework import viewsets
+from rest_framework import permissions
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView
 from django.views.generic.detail import DetailView
@@ -131,3 +134,28 @@ class PlanetCreateView(CreateView):
 
     model = Planet
     form_class = PlanetForm
+
+
+class GalaxyViewSet(viewsets.ModelViewSet):
+    queryset = Galaxy.objects.all()
+    serializer_class = GalaxySerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class StarSystemViewSet(viewsets.ModelViewSet):
+    queryset = StarSystem.objects.all()
+    serializer_class = StarSystemSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class StarViewSet(viewsets.ModelViewSet):
+    queryset = Star.objects.all()
+    serializer_class = StarSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class PlanetViewSet(viewsets.ModelViewSet):
+    queryset = Planet.objects.all()
+    serializer_class = PlanetSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
