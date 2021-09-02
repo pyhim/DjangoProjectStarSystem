@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'StarSystem',
     'smuggler',
     'rest_framework',
+    'rest_framework.authtoken',
     'drf_yasg',
     'corsheaders'
 ]
